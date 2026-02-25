@@ -1,13 +1,13 @@
 function shareSite() {
-        if (navigator.share) {
-            navigator.share({
-                title: 'कृष्णवर्स',
-                text: 'वैदिक यात्रा',
-                url: window.location.href
-            }).catch(console.error);
-        } else {
-            navigator.clipboard.writeText(window.location.href)
-                .then(() => alert("लिङ्क क्लिपबोर्डमा प्रतिलिपि गरियो!"))
-                .catch(() => alert("लिङ्क प्रतिलिपि गर्न असफल।"));
-        }
+    const url = "https://krishnaverse-dev.github.io/krishnaverse/";
+
+    if (navigator.share) {
+        navigator.share({
+            url: url
+        }).catch(console.error);
+    } else {
+        navigator.clipboard.writeText(url)
+            .then(() => alert("Link copied to clipboard!"))
+            .catch(() => alert("Failed to copy link."));
     }
+}
